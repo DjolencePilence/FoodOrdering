@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_registration);
 
         context = this;
         Button submit = findViewById(R.id.submitBtn);
@@ -25,19 +25,32 @@ public class LoginActivity extends AppCompatActivity {
                 String username = usernameTxt.getText().toString();
                 EditText passwordTxt = findViewById(R.id.passwordTxt);
                 String password = passwordTxt.getText().toString();
-                if(username.length() == 0 || password.length() == 0){
+                EditText passwordConfirmationTxt = findViewById(R.id.passwordConfirmationTxt);
+                String passwordConfirmation = passwordConfirmationTxt.getText().toString();
+                EditText nameTxt = findViewById(R.id.nameTxt);
+                String name = nameTxt.getText().toString();
+                EditText surnameTxt = findViewById(R.id.surnameTxt);
+                String surname = surnameTxt.getText().toString();
+                EditText phoneTxt = findViewById(R.id.phoneTxt);
+                String phone = phoneTxt.getText().toString();
+                EditText addressTxt = findViewById(R.id.addressTxt);
+                String address = addressTxt.getText().toString();
+
+
+
+                if(username.length() == 0 || password.length() == 0 || passwordConfirmation.length() == 0
+                        || phone.length() == 0 || address.length() == 0
+                        || name.length() == 0 || surname.length() == 0){
                     Toast.makeText(context, "Niste uneli sve podatke!",
                             Toast.LENGTH_LONG).show();
-                }else if(!"milan93".equals(username)) {
-                    Toast.makeText(context, "Pogresno korisnicko ime!",
-                            Toast.LENGTH_LONG).show();
                 }
-                else if(!"milan123".equals(password)){
-                    Toast.makeText(context, "Pogresna lozinka!",
+                else if(!password.equals(passwordConfirmation)) {
+                    Toast.makeText(context, "Niste ispravno potvrdili lozinku!",
                             Toast.LENGTH_LONG).show();
                 }
             }
         });
+
 
     }
 
@@ -46,5 +59,4 @@ public class LoginActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 }
