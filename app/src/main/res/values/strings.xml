@@ -14,4 +14,7 @@
     <string name="deliveryTime">Vreme dostave:</string>
     <string name="minimum">Minimum:</string>
     <string name="deliveryUntil">Dostava do:</string>
+    <string name="price">Cena:</string>
+    <string name="quantity">Količina:</string>
+    <string name="ingredients">Sastojci:</string>
 </resources>
